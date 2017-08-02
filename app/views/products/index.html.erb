@@ -1,4 +1,4 @@
-<% @product.each do |f| %>
-   <%= link_to f.name %>
-    <br>
+<% @products.each do |f| %>
+	<%= link_to f.name, product_path(f) %>
+<br>
 <% end %>
