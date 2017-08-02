@@ -22,6 +22,7 @@ gem 'whenever', :require => false
 gem "paranoia", "~> 2.2"
 gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
+gem "paperclip", "~> 5.0.0"
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

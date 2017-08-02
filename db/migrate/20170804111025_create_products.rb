@@ -4,7 +4,6 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.string :name
       t.references :brand, foreign_key: true
       t.references :category, foreign_key: true
-      t.string :image, default: 'product_placeholder.jpg'
       t.integer :price
       t.string :slug
 

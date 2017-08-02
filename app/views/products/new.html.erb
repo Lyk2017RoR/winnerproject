@@ -1,13 +1,13 @@
 <h2>Yeni ürün ekle: </h2>
 
-<%= simple_form_for @product do |f| %>
+<%= simple_form_for @product, html: { multipart: true }  do |f| %>
     <p>
       <%= f.label :name %><br>
       <%= f.input_field :name %>
     </p>
 
     <p>
-      <%= f.image :image %><br>   ???
+      <%= f.file_field :image %><br>
     </p>
 
     <p>
