@@ -4,6 +4,7 @@
 <%= @product.description %> <br>
 <%= @product.price %> ₺
 <br><br>
+<%= link_to  "Ürünü Değiştir", edit_product_path(@product) %>
 <br><br><br>
 <%= link_to 'Yeni Ürün Ekle', new_product_path %>
 <br><br>
