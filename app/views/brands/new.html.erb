@@ -1,0 +1,15 @@
+<h2>Yeni marka ekle: </h2>
+
+<%= simple_form_for @brand do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.input_field :name %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+    <%= link_to 'Back', root_path %>
+
+<%end%>
