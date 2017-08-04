@@ -8,8 +8,8 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @categories = Category.all.map { |c| [c.title, c.id] }
-    @brands = Brand.all.map { |c| [c.title, c.id] }
+    @categories = Category.all.map { |c| [c.name, c.id] }
+    @brands = Brand.all.map { |c| [c.name, c.id] }
   end
 
   def create
@@ -23,8 +23,8 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all.map{ |c| [c.title, c.id] }
-    @brands = Brand.all.map{ |c| [c.title, c.id]}
+    @categories = Category.all.map{ |c| [c.name, c.id] }
+    @brands = Brand.all.map{ |c| [c.name, c.id]}
   end
 
   def show
