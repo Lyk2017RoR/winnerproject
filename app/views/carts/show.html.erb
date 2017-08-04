@@ -1,0 +1,6 @@
+<% @cart_items.each do |ci| %>
+    <%= ci.product.name %>
+    <%= ci.product.price %>
+<% end %>
+<br>
+    <%= @cart.total_price %>

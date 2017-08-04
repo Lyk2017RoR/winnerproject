@@ -1,9 +1,8 @@
 class CartsController < ApplicationController
     before_action :get_cart, only: %i[show destroy]
-    before_action :get_necessary, only: %i[show]
 
     def create
-        @cart = Brand.new(params.require(:cart).permit(:user_id))
+        @cart = Cart.new(params.require(:cart).permit(:user_id))
         @cart.save
     end
 

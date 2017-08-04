@@ -3,7 +3,10 @@
 <%= @product.category.name %> <br>
 <%= @product.description %> <br>
 <%= @product.price %> ₺
+
+<%= link_to "Sepete Ekle", add_to_cart_path(product_id: @product.id), method: :post %>
 <br><br>
+<%= link_to  "Ürünü Değiştir", edit_product_path(@product) %>
 <br><br><br>
 <%= link_to 'Yeni Ürün Ekle', new_product_path %>
 <br><br>
