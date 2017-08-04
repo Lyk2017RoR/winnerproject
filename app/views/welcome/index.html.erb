@@ -1,2 +1,11 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+
+<% @categories.each do |cat| %>
+    <%= cat.name %>
+<% end %>
+<br>
+<% @products.each do |pro| %>
+    <%= pro.name %>
+    <br>
+    <% end %>
