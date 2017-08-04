@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: %i[edit show update destroy]
-
+  before_action :is_admin, except: %i[index show]
 
   def index
     @products = Product.all

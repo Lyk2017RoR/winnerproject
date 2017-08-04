@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
   def find_brands_and_categories
     @categories = Category.all
     @brands = Brand.all
-    @products = Product.paginate(page: params[:page], per_page: 8)
+  end
+
+  def after_sign_out_path_for(user)
+    root_path
+  end
+
+  def is_admin
+    if current_user.admin?
+      # do something
+    else
+      redirect_to root_path
+    end
   end
 end
