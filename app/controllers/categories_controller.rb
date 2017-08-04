@@ -40,6 +40,6 @@ class CategoriesController < ApplicationController
     params.require(:profile).permit(:name, :image)
   end
   def find_category
-    @category = Category.find params[:id]
+    @category = Category.friendly.find params[:id]
   end
 end
