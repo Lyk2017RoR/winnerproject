@@ -8,4 +8,6 @@
 <% @products.each do |pro| %>
     <%= pro.name %>
     <br>
-    <% end %>
+<% end %>
+
+<%= will_paginate @products, renderer: BootstrapPagination::Rails %>
