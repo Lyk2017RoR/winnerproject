@@ -1,0 +1,39 @@
+<h2>Yeni Profil Oluştur:</h2>
+<%= simple_form_for @profile do |f| %>
+    <p>
+      <%= f.label :first_name %><br>
+      <%= f.input_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name %><br>
+      <%= f.input_field :last_name %>
+    </p>
+    <p>
+      <%= f.label :password %><br/>
+      <%= f.input_field :password %>
+    </p>
+    <p>
+      <%= f.label :phone %><br>
+      <%= f.telephone_field :phone %>
+    </p>
+    <p>
+      <%= f.label :birth_date %><br>
+      <%= f.date_select :birth_date %>
+    </p>
+    <p>
+      <%= f.label :province %><br>
+      <%= f.collection_select() %> ????
+    </p>
+    <p>
+      <%= f.label :adress %>
+      <%= f.text_area :adress %>
+    </p>
+    <p>
+      <%= f.label :email %>
+      <%= f.input_field :email %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+    <%= link_to 'Back', root_path %>
+<%end%>
