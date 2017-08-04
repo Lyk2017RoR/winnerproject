@@ -21,6 +21,7 @@ gem 'whenever', :require => false
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem "paranoia", "~> 2.2"
 gem 'friendly_id', '~> 5.1.0'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
