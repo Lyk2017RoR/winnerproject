@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   def find_brands_and_categories
     @categories = Category.all
     @brands = Brand.all
-    @products = Product.find(:all, order: 'id desc', limit: 5)
+    @products = Product.all
   end
 end
