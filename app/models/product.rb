@@ -18,9 +18,10 @@ class Product < ApplicationRecord
   belongs_to :brand
   belongs_to :category
   
-  has_attached_file :image
-
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  has_attached_file :image,
+  :path => "/products/:id/:id_large.jpg"
+  
+  validates_attachment_content_type :image, :content_type => /^image\/(jpg|jpeg)$/
 
   extend FriendlyId
   friendly_id :name, use: :slugged
