@@ -1,7 +1,9 @@
 class CartItemsController < ApplicationController
-    def create
-        @cart_item = CartItem.new
-    end
+  def create
+    user_cart = Cart.find_by(user_id: current_user.id)
+  end
 
+  def destroy
     
+  end
 end
