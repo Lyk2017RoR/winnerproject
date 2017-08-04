@@ -1,11 +1,9 @@
-<% @product.each do |f| %>
-    <%= f.name %> /
-    <%= f.brand %> /
-    <%= f.category %> /
-    <%= f.description %> /
-    <%= f.price %>
-    <br><br>
-<% end %>
+<%= @product.name %> <br>
+<%= @product.brand.name %> <br>
+<%= @product.category.name %> <br>
+<%= @product.description %> <br>
+<%= @product.price %> ₺ 
+<br><br>
 <br><br><br>
 <%= link_to 'Yeni Ürün Ekle', 'products/new' %>
 <br><br>
