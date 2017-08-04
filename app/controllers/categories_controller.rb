@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:slug])
     @category.destroy
     redirect_to welcome_admin_path
   end
@@ -40,6 +40,6 @@ class CategoriesController < ApplicationController
     params.require(:profile).permit(:name, :image)
   end
   def find_category
-    @category = Category.find params[:id]
+    @category = Category.find params[:slug]
   end
 end
