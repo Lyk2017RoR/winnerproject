@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
+  before_action :find_category, only: %i[show edit update destroy]
+  
   def new
     @category = Category.new
   end
 
   def create
-    @category = Category.new(params.require(:category).permit(:name, :image))
+    @category = Category.new(category_params)
 
     if @category.save
       redirect_to welcome_admin_path
@@ -14,16 +16,13 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])    
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
-    if @category.update(params.require(:category).permit(:name, :image))
+    if @category.update(category_params)
       redirect_to welcome_admin_path
     else
       render "new"
@@ -33,6 +32,14 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    redirect_to welcome_admin_path    
+    redirect_to welcome_admin_path
+  end
+
+  private
+  def category_params
+    params.require(:profile).permit(:name, :image)
+  end
+  def find_category
+    @category = Category.find params[:id]
   end
 end

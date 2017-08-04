@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  before_action :find_product, only: %i[edit show update destroy]
+
+
   def index
     @products = Product.all
   end
@@ -20,13 +23,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @categories = Category.all.map{ |c| [c.title, c.id] }
     @brands = Brand.all.map{ |c| [c.title, c.id]}
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def update
@@ -40,10 +41,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product.destroy
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:name, :price, :description, :category_id, :brand_id, :image)
   end
-
+  def find_product
+    @product = Product.find(params[:id])
+  end
 end
