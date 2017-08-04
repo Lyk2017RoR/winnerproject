@@ -14,12 +14,21 @@ gem 'sqlite3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
+gem 'whenever', :require => false
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem "paranoia", "~> 2.2"
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'annotate', require: false
+  gem 'faker'
 end
 
 group :development do
