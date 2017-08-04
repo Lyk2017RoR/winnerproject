@@ -25,10 +25,8 @@ gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'annotate', require: false
 end
 
 group :development do
@@ -37,6 +35,7 @@ group :development do
   gem 'faker'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'annotate', require: false
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
