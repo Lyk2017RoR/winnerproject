@@ -18,7 +18,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 gem 'whenever', :require => false
-gem 'ransack', github: 'activerecord-hackery/ransack'
+#gem 'ransack', github: 'activerecord-hackery/ransack'
 gem "paranoia", "~> 2.2"
 gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
