@@ -40,6 +40,6 @@ class BrandsController < ApplicationController
   end
   
   def find_brand
-        @brand = Brand.find params[:slug]
+    @brand = Brand.friendly.find params[:id]
   end
 end
