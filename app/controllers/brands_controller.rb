@@ -1,10 +1,12 @@
 class BrandsController < ApplicationController
+  before_action :find_brand, only: %i[edit show update destroy]
+
   def new
     @brand = Brand.new
   end
 
   def create
-    @brand = Brand.new(params.require(:brand).permit(:name))
+    @brand = Brand.new(brand_params)
 
     if @brand.save
       redirect_to welcome_admin_path
@@ -14,16 +16,13 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @brand = Brand.find(params[:id])    
   end
 
   def edit
-    @brand = Brand.find(params[:id])
   end
 
   def update
-    @brand = Brand.find(params[:id])
-    if @brand.update(params.require(:brand).permit(:title))
+    if @brand.update(brand_params)
       redirect_to welcome_admin_path
     else
       render "new"
@@ -31,8 +30,16 @@ class BrandsController < ApplicationController
   end
 
   def destroy
-    @brand = Brand.find(params[:id])
     @brand.destroy
     redirect_to welcome_admin_path    
+  end
+
+  private
+  def brand_params
+    params.require(:brand).permit(:name)
+  end
+  
+  def find_brand
+        @brand = Brand.find params[:id]
   end
 end
