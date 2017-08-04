@@ -1,0 +1,12 @@
+<% @product.each do |f| %>
+    <%= f.name %> /
+    <%= f.brand %> /
+    <%= f.category %> /
+    <%= f.description %> /
+    <%= f.price %>
+    <br><br>
+<% end %>
+<br><br><br>
+<%= link_to 'Yeni Ürün Ekle', 'products/new' %>
+<br><br>
+<%= link_to 'Back', root_path %>
