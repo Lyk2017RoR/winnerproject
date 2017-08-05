@@ -39,11 +39,9 @@
         <hr>
     </div>
     <% @products.each do |pro| %>
-        <% if pro.category_id == 1 %>
-    <div class="col-md-3 col-sm-6 col-xs-12 product shoe">
-    <% else %>
-    <div class="col-md-3 col-sm-6 col-xs-12 product tshirt">
-    <% end %>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 product <%= pro.category.name.parameterize %>">
+
         <% if pro.image_file_name.nil? %>
             <%= image_tag("/images/original/#{pro.category_id}.png", :alt => "#{pro.name}") %>
         <% else %>
