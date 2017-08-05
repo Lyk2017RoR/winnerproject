@@ -12,6 +12,13 @@
     <%= render 'partials/nav' %>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <div id="notice" class="alert-success"><%= notice %></div>
+            <div id="alert" class="alert-danger"> <%= alert %></div>
+          </div>
+        </div>
+
         <%= yield %>
       </div>
     </div>

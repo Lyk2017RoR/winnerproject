@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :is_admin, except: %i[index show]
 
   def index
-    @products = Product.all
+    @products = Product.all.paginate(page: params[:page], per_page: 8)
   end
 
   def new
@@ -43,6 +43,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    redirect_to root_path,  :notice => 'Eklendi'
   end
 
   private

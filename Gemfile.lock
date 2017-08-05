@@ -81,6 +81,8 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    email_validator (1.6.0)
+      activemodel
     erubi (1.6.1)
     excon (0.58.0)
     execjs (2.7.0)
@@ -396,6 +398,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
+  email_validator
   faker
   fog
   font-awesome-rails

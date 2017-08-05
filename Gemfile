@@ -26,6 +26,7 @@ gem 'simple_form'
 gem "paperclip", "~> 5.0.0"
 gem "fog"
 gem "font-awesome-rails"
+gem 'email_validator'
 
 
 group :development, :test do
