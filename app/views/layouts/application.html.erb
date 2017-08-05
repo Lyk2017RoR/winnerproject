@@ -18,11 +18,11 @@
             <div id="alert" class="alert-danger"> <%= alert %></div>
           </div>
         </div>
-
         <%= yield %>
+        <div class="row" style="margin-top: 30px;">
+          <%= render 'partials/footer' %>
+        </div>
       </div>
     </div>
-
-    <%= render 'partials/footer' %>
   </body>
 </html>
