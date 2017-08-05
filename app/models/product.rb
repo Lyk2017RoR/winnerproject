@@ -19,10 +19,10 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :cart_item
 
-  has_attached_file :image,
-  :path => "/products/:id/:id_large.jpg"
-  
-  validates_attachment_content_type :image, :content_type => /^image\/(jpg|jpeg)$/
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  # validates_attachment_content_type :image, content_type: /^image\/(jpg|jpeg)$/
 
   extend FriendlyId
   friendly_id :name, use: :slugged

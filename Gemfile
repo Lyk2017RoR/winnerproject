@@ -11,7 +11,8 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.2'
 gem 'sass-rails', '~> 5.0'
 gem 'sqlite3'
-gem 'turbolinks', '~> 5'
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -24,6 +25,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
 gem "paperclip", "~> 5.0.0"
 gem "fog"
+gem "font-awesome-rails"
+
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

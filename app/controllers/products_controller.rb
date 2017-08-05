@@ -52,5 +52,6 @@ class ProductsController < ApplicationController
   end
   def find_product
     @product = Product.friendly.find(params[:id])
+    @products = Product.where(brand_id: @product.brand_id).limit(4)
   end
 end

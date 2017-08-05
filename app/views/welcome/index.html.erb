@@ -1,17 +1,22 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-
-<% @categories.each do |cat| %>
-    <%= cat.name %>
-<% end %>
-<br>
+<div class="row">
 <% @products.each do |pro| %>
-    <%= pro.name %>
-    <br>
+    <div class="col-md-3 col-sm-4 col-xs-6 product">
+        <%= image_tag pro.image.url %>
+        <div class="price">
+            <h4> <%= pro.price %> ₺ </h4>
+        </div>
+        <div class="desc">
+            <h4>
+                <%= pro.name %>
+            </h4>
+            <p>
+                <%= truncate(pro.description, length: 60) %>
+            </p>
+            <%= button_to  "Ürüne Git", product_path(pro), class: "btn btn-block", method: :get %>
+        </div>
+    </div>
 <% end %>
+</div>
+
 
 <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
-
-
-<h1> <%= current_user.email %> </h1>
-<%= link_to  "Çıkış Yap", destroy_user_session_path, method: :delete %>

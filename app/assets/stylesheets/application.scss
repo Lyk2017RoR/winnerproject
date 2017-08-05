@@ -1,6 +1,105 @@
  @import "bootstrap";
- @import "bootstrap-sprockets";
+ @import "font-awesome";
+ @import url('https://fonts.googleapis.com/css?family=Raleway');
+
 
  $black: #2E2F34;
  $red: #BA3434;
  $blue: #3148A0;
+ $white: #fafafa;
+
+h1,h2,h3,h4,h5,h6,a,p {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    .notice {text-align: center; color: $blue;}
+    .alert {text-align: center; color: $red;}
+}
+.navbar-default {
+    background: $white;
+}
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    img {margin:auto; height: 100%;}
+}
+.navbar-toggle {
+    z-index:3;
+}
+
+.product {
+    border: 3px solid $white;
+    max-height: 300px;
+    overflow: hidden;
+    padding: 0;
+    img {transition: all ease-in-out .3s;}
+    &:hover {
+        img {filter: blur(3px)}
+        .desc {background: transparentize($red, .5); color: $white; p {height: 50px; opacity: 1}}
+        .price {color: $red; h4 {font-size: 30px;} }
+    }
+    .price {
+        position: absolute;
+        color: $black;
+        top: 0px; left: 0px;
+        padding: 5px 10px 0px;
+        transform: rotate(-45deg);
+        h4 {transition: all ease-in-out .3s;}
+    }
+    .desc {
+        transition: all ease-in-out .3s;
+        background: transparentize($red, .9);
+        position: absolute;
+        bottom: 0px;
+        max-width: 300px;
+        h4 {text-align: center;padding: 0px 5px;}
+        p {transition: all ease-in-out .3s;text-align: justify; color: $white; padding: 0px 5px; height: 0px; opacity: 0;}
+        .btn {background:transparentize($red, .9);}
+    }
+}
+
+.single-product {
+    .product-image {
+        text-align: center;
+        max-height: 300px; overflow: hidden;
+        img {margin: auto; width: 100%;}
+        padding: 0;
+        border: 3px $red solid;
+    }
+    .product-desc {
+        padding: 0;
+        border: 3px $blue solid;
+        min-height: 300px;
+        overflow: hidden;
+        .desc {padding: 10px 15px;}
+        .price {
+            position:relative;
+            text-align: center;
+            padding: 5px;
+            width: 100%;
+            background: $blue;
+            color: $white;
+        }
+        .btn {
+            position: absolute;
+            bottom: 0; left: 0;
+            background: $blue;
+            color: $white;
+            border-radius: 0;
+        }
+    }
+}
+
+.btn-admin {
+    background: $black;
+    color: $white;
+    transition: all ease-in-out .3s;
+    &:hover {color:$white; background: darken($black, 5)}
+}
