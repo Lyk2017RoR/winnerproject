@@ -13,7 +13,11 @@
     <div class="row single-product tshirt">
 <% end %>
     <div class="col-md-6 col-sm-12 product-image">
-        <%= image_tag @product.image.url %>
+        <% if @product.image_file_name.nil? %>
+            <%= image_tag("/images/original/#{@product.category_id}.png", :alt => "#{@product.name}") %>
+        <% else %>
+            <%= image_tag("/products/#{@product.id}/#{@product.id}_large.jpg", :alt => "#{@product.name}") %>
+        <% end %>
     </div>
     <div class="col-md-6 col-sm-12 product-desc">
         <div class="price">
@@ -50,7 +54,11 @@
     <% else %>
     <div class="col-md-3 col-sm-6 col-xs-12 product tshirt">
     <% end %>
-        <%= image_tag pro.image.url %>
+        <% if pro.image_file_name.nil? %>
+            <%= image_tag("/images/original/#{pro.category_id}.png", :alt => "#{pro.name}") %>
+        <% else %>
+            <%= image_tag("/products/#{pro.id}/#{pro.id}_large.jpg", :alt => "#{pro.name}") %>
+        <% end %>
         <div class="price">
             <h4> <%= pro.price %> ₺ </h4>
         </div>
