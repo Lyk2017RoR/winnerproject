@@ -19,16 +19,14 @@ class ProductsController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def edit
-    @categories = Category.all.map{ |c| [c.name, c.id] }
-    @brands = Brand.all.map{ |c| [c.name, c.id]}
+    @categories = Category.all.map { |c| [c.name, c.id] }
+    @brands = Brand.all.map { |c| [c.name, c.id] }
   end
 
-  def show
-  end
+  def show; end
 
   def update
     @product.category_id = params[:category_id]
@@ -43,7 +41,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to root_path,  :alert => 'Ürün kaldırıldı'
+    redirect_to root_path, alert: 'Ürün kaldırıldı'
   end
 
   private
@@ -51,8 +49,9 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :price, :description, :category_id, :brand_id, :image)
   end
+
   def find_product
     @product = Product.friendly.find(params[:id])
-    @products = Product.order("RANDOM()").where(brand_id: @product.brand_id).limit(4)
+    @products = Product.order('RANDOM()').where(brand_id: @product.brand_id).limit(4)
   end
 end

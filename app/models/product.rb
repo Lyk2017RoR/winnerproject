@@ -17,7 +17,7 @@
 class Product < ApplicationRecord
   belongs_to :brand
   belongs_to :category
-  has_many :cart_item
+  has_many :cart_item, dependent: :destroy
 
   Paperclip.interpolates :category_id do |attachment, style|
     attachment.instance.category.id
