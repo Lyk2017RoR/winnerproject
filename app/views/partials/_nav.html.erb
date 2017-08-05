@@ -29,7 +29,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-         <li><a href="<%= cart_path(current_user.id) %>">
+         <li><a href="<%= cart_path(Cart.find_by(user_id: current_user.id)) %>">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>  
         </a></li> 
         

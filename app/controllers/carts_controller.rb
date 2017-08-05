@@ -6,7 +6,7 @@ class CartsController < ApplicationController
         @cart.save
     end
 
-    def show;
+    def show
         @cart_items = CartItem.where(cart_id: @cart.id)
         @cart_items.each { |ci| @cart.total_price += ci.product.price }
     end
