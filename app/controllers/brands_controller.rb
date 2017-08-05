@@ -1,5 +1,7 @@
 class BrandsController < ApplicationController
   before_action :find_brand, only: %i[edit show update destroy]
+  before_action :find_all_products_paginate_by_6, only: %i[index]
+  before_action :find_all_products_paginate_by_8, only: %i[show]
 
   def new
     @brand = Brand.new

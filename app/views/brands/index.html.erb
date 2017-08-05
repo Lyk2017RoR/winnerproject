@@ -1,4 +1,25 @@
-<% @brand.each do |f| %>
-   <%= link_to f.name, brand_path(f) %>
-    <br>
+<% @brands.each do |f| %>
+    <div class="col-md-6 col-sm-12 text-center" style="padding: 10px 50px;">
+        <%= link_to f.name, brand_path(f), class: 'h3' %>
+        <hr>
+        <div class="row">
+            <% @products.where(brand_id: f.id).each do |pro| %>
+            <div class="col-md-4 col-sm-4 col-xs-6 product <%= pro.category.name.parameterize %>">
+
+                <%= image_tag pro.image.url %>
+                <div class="price">
+                    <h5> <%= pro.price %> ₺ </h5>
+                </div>
+                <div class="desc">
+                    <h5>
+                        <%= pro.name %>
+                    </h5>
+                    <%= button_to  "Ürüne Git", product_path(pro), class: "btn btn-block", method: :get %>
+                </div>
+            </div>
+            <% end %>
+            <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+        </div>
+    </div>
+   
 <% end %>

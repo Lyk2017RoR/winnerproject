@@ -11,6 +11,6 @@
 
 class CartItem < ApplicationRecord
   belongs_to :cart
-  belongs_to :product
+  belongs_to :product, dependent: :destroy
   accepts_nested_attributes_for :product
 end

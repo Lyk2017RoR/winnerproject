@@ -1,9 +1,27 @@
-  <%= simple_form_for( @product, html: { multipart: true }) do |f| %>
-    <%= f.text_field :name %> <br>
-    <%= f.text_area :description %> <br>
-    <%= f.file_field :image %> <br>
-    <%= f.number_field :price %> <br>
-    <%= f.collection_select(:brand_id, Brand.all, :id, :name) %> <br>
-    <%= f.collection_select(:category_id, Category.all, :id, :name) %> <br>
-    <%= f.submit "Kaydet" %>
-  <% end %>
+<div class="row single-product <%= @product.category.name %>">
+    <div class="col-md-6 col-sm-12 product-image">
+      <%= simple_form_for( @product, html: { multipart: true }) do |f| %>
+        <%= f.file_field :image %>
+    </div>
+    <div class="col-md-6 col-sm-12 product-desc">
+        <div class="price">
+            <h4> <%= f.input_field :price, style: "background: transparent; border: none; text-align: center; width: 50px;" %> ₺ </h4>
+        </div>
+        <div class="desc">
+            <h4>
+                <%= f.input_field :name, style: "width: 100%;" %>
+            </h4>
+            <p>
+                <%= f.text_area :description, style: "width: 100%; min-height: 100px;"  %>
+            </p>
+            <div class="text-center">
+            Kategori | <%= f.collection_select(:category_id, Category.all, :id, :name) %><br>
+            Marka | <%= f.collection_select(:brand_id, Brand.all, :id, :name) %>
+            </div>
+            
+            <%= f.submit 'Değişiklikleri Kaydet', class: "btn btn-block" %>
+            <% end %>
+        </div>
+    </div>
+</div>
+</div>

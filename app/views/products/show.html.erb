@@ -1,17 +1,5 @@
-<!-- <%= @product.name %> <br>
-<%= @product.brand.name %> <br>
-<%= @product.category.name %> <br>
-<%= @product.description %> <br>
-<%= @product.price %> ₺
+<div class="col-md-3 col-sm-4 col-xs-6 product <%= pro.category.name.parameterize %>">
 
-<br><br>
-<br><br><br>
-<%= link_to 'Back', root_path %> -->
-<% if @product.category_id == 1 %>
-    <div class="row single-product shoe">
-<% else %>
-    <div class="row single-product tshirt">
-<% end %>
     <div class="col-md-6 col-sm-12 product-image">
         <% if @product.image_file_name.nil? %>
             <%= image_tag("/images/original/#{@product.category_id}.png", :alt => "#{@product.name}") %>

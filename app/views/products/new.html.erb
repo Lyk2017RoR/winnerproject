@@ -1,40 +1,27 @@
-<h2>Yeni ürün ekle: </h2>
-
-<%= simple_form_for @product, html: { multipart: true }  do |f| %>
-    <p>
-      <%= f.label :name %><br>
-      <%= f.input_field :name %>
-    </p>
-
-    <p>
-      <%= f.file_field :image %><br>
-    </p>
-
-    <p>
-      <%= f.label :brand %><br>
-      <%= f.collection_select(:brand_id, Brand.all, :id, :name) %>
-    </p>
-
-    <p>
-      <%= f.label :category %><br>
-      <%= f.collection_select(:category_id, Category.all, :id, :name) %>
-    </p>
-
-    <p>
-      <%= f.label :description %><br>
-      <%= f.input_field :description %>
-    </p>
-
-    <p>
-      <%= f.label :price %><br>
-      <%= f.input_field :price %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
-
-
-    <%= link_to 'Back', root_path %>
-
-<%end%>
+  <div class="row single-product shoe">
+    <div class="col-md-6 col-sm-12 product-image">
+      <%= simple_form_for( @product, html: { multipart: true }) do |f| %>
+        <%= f.file_field :image %>
+    </div>
+    <div class="col-md-6 col-sm-12 product-desc">
+        <div class="price">
+            <h4> <%= f.input_field :price, placeholder: "Fiyat", style: "background: transparent; border: none; text-align: center; width: 75px;" %> ₺ </h4>
+        </div>
+        <div class="desc">
+            <h4>
+                <%= f.input_field :name, placeholder: "Ürün İsmi", style: "width: 100%;" %>
+            </h4>
+            <p>
+                <%= f.text_area :description, placeholder: "Ürün açıklaması", style: "width: 100%; min-height: 100px;"  %>
+            </p>
+            <div class="text-center">
+            Kategori | <%= f.collection_select(:category_id, Category.all, :id, :name) %><br>
+            Marka | <%= f.collection_select(:brand_id, Brand.all, :id, :name) %>
+            </div>
+            
+            <%= f.submit "Ürünü kaydet", class: "btn btn-block" %>
+            <% end %>
+        </div>
+    </div>
+</div>
+</div>
