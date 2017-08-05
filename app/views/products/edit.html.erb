@@ -1,8 +1,4 @@
-<% if @product.category_id == 1 %>
-    <div class="row single-product shoe">
-<% else %>
-    <div class="row single-product tshirt">
-<% end %>
+<div class="row single-product <%= @product.category.name %>">
     <div class="col-md-6 col-sm-12 product-image">
       <%= simple_form_for( @product, html: { multipart: true }) do |f| %>
         <%= f.file_field :image %>
@@ -23,7 +19,7 @@
             Marka | <%= f.collection_select(:brand_id, Brand.all, :id, :name) %>
             </div>
             
-            <%= link_to "Değişiklikleri kaydet", product_path(product_id: @product.id), class: "btn btn-block", method: :update %>
+            <%= f.submit 'Değişiklikleri Kaydet', class: "btn btn-block" %>
             <% end %>
         </div>
     </div>

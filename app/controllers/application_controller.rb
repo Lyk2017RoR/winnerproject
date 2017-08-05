@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
     @categories = Category.all
     @brands = Brand.all
   end
-  def find_all_products_paginate_by_4
-    @products = Product.all.paginate(page: params[:page], per_page: 4)
+  def find_all_products_paginate_by_6
+    @products = Product.all.paginate(page: params[:page], per_page: 6)
   end
   def find_all_products_paginate_by_8
     @products = Product.all.paginate(page: params[:page], per_page: 8)

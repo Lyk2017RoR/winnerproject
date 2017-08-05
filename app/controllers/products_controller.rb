@@ -3,13 +3,13 @@ class ProductsController < ApplicationController
   before_action :is_admin, except: %i[index show]
 
   def index
-    @products = Product.all
+    @products = Product.all.paginate(page: params[:page], per_page: 8)
   end
 
   def new
     @product = Product.new
-    @categories = Category.all.map { |c| [c.name, c.id] }
-    @brands = Brand.all.map { |c| [c.name, c.id] }
+    # @categories = Category.all.map { |c| [c.name, c.id] }
+    # @brands = Brand.all.map { |c| [c.name, c.id] }
   end
 
   def create
@@ -43,6 +43,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    redirect_to root_path,  :notice => 'Eklendi'
   end
 
   private
