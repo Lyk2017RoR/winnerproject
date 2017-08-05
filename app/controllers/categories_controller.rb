@@ -41,5 +41,6 @@ class CategoriesController < ApplicationController
   end
   def find_category
     @category = Category.friendly.find params[:id]
+    @products = Product.where(category_id: @category.id).paginate(page: params[:page], per_page: 8)
   end
 end
