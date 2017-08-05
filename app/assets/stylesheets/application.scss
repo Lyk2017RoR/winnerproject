@@ -11,7 +11,6 @@
 h1,h2,h3,h4,h5,h6,a,p {
     font-family: 'Raleway', sans-serif;
 }
-
 body {
     overflow-x: hidden;
     .notice {text-align: center; color: $blue;}
@@ -28,7 +27,22 @@ body {
     text-align: center;
     margin: auto;
     padding: 10px;
-    img {margin:auto; height: 100%;}
+    img {
+        margin:auto; 
+        height: 100%;
+        &.brand-logo {
+            display: block;
+            @media screen and (max-width: 900px) {
+                display: none;
+            }
+        }
+        &.brand-icon {
+            display: none;
+            @media screen and (max-width: 900px) {
+                display: block;
+            }
+        }
+    }
 }
 .navbar-toggle {
     z-index:3;
