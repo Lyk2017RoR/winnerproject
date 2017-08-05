@@ -1,4 +1,31 @@
-<% @brand.each do |f| %>
-   <%= link_to f.name, brand_path(f) %>
-    <br>
+<% @brands.each do |f| %>
+    <div class="col-md-6 col-sm-12 text-center" style="padding: 10px 50px;">
+        <%= link_to f.name, brand_path(f), class: 'h3' %>
+        <hr>
+        <div class="row">
+            <% @products.where(brand_id: f.id).each do |pro| %>
+            <% if pro.category_id == 1 %>
+            <div class="col-md-6 col-sm-12 col-xs-12 product shoe">
+            <% else %>
+            <div class="col-md-6 col-sm-12 col-xs-12 product tshirt">
+            <% end %>
+                <%= image_tag pro.image.url %>
+                <div class="price">
+                    <h4> <%= pro.price %> ₺ </h4>
+                </div>
+                <div class="desc">
+                    <h4>
+                        <%= pro.name %>
+                    </h4>
+                    <p>
+                        <%= truncate(pro.description, length: 60) %>
+                    </p>
+                    <%= button_to  "Ürüne Git", product_path(pro), class: "btn btn-block", method: :get %>
+                </div>
+            </div>
+            <% end %>
+            <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+        </div>
+    </div>
+   
 <% end %>

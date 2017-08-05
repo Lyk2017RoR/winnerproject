@@ -1,9 +1,31 @@
-  <%= simple_form_for( @product, html: { multipart: true }) do |f| %>
-    <%= f.text_field :name %> <br>
-    <%= f.text_area :description %> <br>
-    <%= f.file_field :image %> <br>
-    <%= f.number_field :price %> <br>
-    <%= f.collection_select(:brand_id, Brand.all, :id, :name) %> <br>
-    <%= f.collection_select(:category_id, Category.all, :id, :name) %> <br>
-    <%= f.submit "Kaydet" %>
-  <% end %>
+<% if @product.category_id == 1 %>
+    <div class="row single-product shoe">
+<% else %>
+    <div class="row single-product tshirt">
+<% end %>
+    <div class="col-md-6 col-sm-12 product-image">
+      <%= simple_form_for( @product, html: { multipart: true }) do |f| %>
+        <%= f.file_field :image %>
+    </div>
+    <div class="col-md-6 col-sm-12 product-desc">
+        <div class="price">
+            <h4> <%= f.input_field :price %> ₺ </h4>
+        </div>
+        <div class="desc">
+            <h4>
+                <%= f.input_field :name %>
+            </h4>
+            <p>
+                <%= f.text_area :description %>
+            </p>
+            <div class="text-center">
+            Kategori | <%= f.collection_select(:category_id, Category.all, :id, :name) %><br>
+            Marka | <%= f.collection_select(:brand_id, Brand.all, :id, :name) %>
+            </div>
+            
+            <%= link_to "Değişiklikleri kaydet", product_path(product_id: @product.id), class: "btn btn-block", method: :update %>
+            <% end %>
+        </div>
+    </div>
+</div>
+</div>

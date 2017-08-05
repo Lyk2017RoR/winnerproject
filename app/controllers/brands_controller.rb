@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
   before_action :find_brand, only: %i[edit show update destroy]
+  before_action :find_all_products, only: %i[index]
 
   def new
     @brand = Brand.new
