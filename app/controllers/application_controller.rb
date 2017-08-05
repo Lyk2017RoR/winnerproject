@@ -6,8 +6,11 @@ class ApplicationController < ActionController::Base
     @categories = Category.all
     @brands = Brand.all
   end
-  def find_all_products 
+  def find_all_products_paginate_by_4
     @products = Product.all.paginate(page: params[:page], per_page: 4)
+  end
+  def find_all_products_paginate_by_8
+    @products = Product.all.paginate(page: params[:page], per_page: 8)
   end
   def after_sign_out_path_for(user)
     root_path
