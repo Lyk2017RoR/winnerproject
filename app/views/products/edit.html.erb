@@ -9,14 +9,14 @@
     </div>
     <div class="col-md-6 col-sm-12 product-desc">
         <div class="price">
-            <h4> <%= f.input_field :price %> ₺ </h4>
+            <h4> <%= f.input_field :price, style: "background: transparent; border: none; text-align: center; width: 50px;" %> ₺ </h4>
         </div>
         <div class="desc">
             <h4>
-                <%= f.input_field :name %>
+                <%= f.input_field :name, style: "width: 100%;" %>
             </h4>
             <p>
-                <%= f.text_area :description %>
+                <%= f.text_area :description, style: "width: 100%; min-height: 100px;"  %>
             </p>
             <div class="text-center">
             Kategori | <%= f.collection_select(:category_id, Category.all, :id, :name) %><br>
