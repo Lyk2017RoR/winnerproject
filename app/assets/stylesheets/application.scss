@@ -12,6 +12,7 @@ h1,h2,h3,h4,h5,h6,a,p {
     font-family: 'Raleway', sans-serif;
 }
 body {
+    padding-bottom: 60px;
     overflow-x: hidden;
     .notice {text-align: center; color: $blue;}
     .alert {text-align: center; color: $red;}
@@ -221,5 +222,5 @@ body {
 .footer {
     background: $black;
     color: $white;
-    position: relative; bottom: 0; left: 0;
+    position: fixed; bottom: 0; left: 0;
 }
