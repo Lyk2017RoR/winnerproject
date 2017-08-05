@@ -1,4 +1,19 @@
-<% @category.each do |f| %>
-   <%= link_to f.name, category_path(f) %>
-    <br>
-<% end %>
+<div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-6 category">
+        <a href="<%= category_path(@shoe) %>">
+            <%= image_tag "/images/original/1.png" %>
+        </a>
+        <div class="desc">
+            <h4> <%= @shoe.name %> </h4>
+        </div>
+    </div>
+     <div class="col-md-6 col-sm-6 col-xs-6 category">
+         <a href="<%= category_path(@tshirt) %>">
+            <%= image_tag "/images/original/2.png" %>
+         </a>
+        <div class="desc">
+            <h4> <%= @tshirt.name %> </h4>
+        </div>
+    </div>
+</div>
+

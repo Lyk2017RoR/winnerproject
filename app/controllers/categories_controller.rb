@@ -1,6 +1,11 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: %i[show edit update destroy]
   
+  def index
+    @shoe = Category.first
+    @tshirt = Category.second
+  end
+
   def new
     @category = Category.new
   end

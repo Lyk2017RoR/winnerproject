@@ -17,14 +17,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-left">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b> Kategoriler </a>
-          <ul class="dropdown-menu">
-            <% @categories.each do |cat| %>
-            <li><a href="<%= category_path(cat) %>"> <%= cat.name %> </a></li>
-            <% end %>
-          </ul>
-        </li>
+        <li><a href="<%= categories_path %>">Kategoriler</a></li>
         <li><a href="<%= brands_path %>">Markalar</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
